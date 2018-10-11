@@ -1,13 +1,18 @@
 ---
-title: 测试题目
+title: 开发中遇到的问题汇总
 date: 2018-10-11 00:00:47
 tags:
 author: 彭凡
 ---
-# 目录
-* [iOS12 无法获取WiFi的SSID](#chapter-1)
 
-### <span id="chapter-1">iOS12 无法获取WiFi的SSID</span>
+摘要:
+ 开发中遇到的问题汇总,包含解决方案,查漏补缺
+
+<!-- more -->
+
+### 目录
+* [iOS12 无法获取WiFi的SSID](#chapter-1)
+#### <span id="chapter-1">iOS12 无法获取WiFi的SSID</span>
 简述:  
 SSID全称Service Set IDentifier, 即Wifi网络的公开名称.在IOS 4.1以上版本提供了公开的方法来获取该信息.  
 以下是获取SSID的代码:
