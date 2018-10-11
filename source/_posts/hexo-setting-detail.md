@@ -200,6 +200,90 @@ hexo s
 
 ~~~
 
+##### 选定Scheme
+
+目前Next 支持三种 Scheme 
+
+* Muse - 默认的Scheme 
+* Mist-Muse 紧凑版本，整洁有序的单栏外观
+* Pisces - 双栏Scheme 
+
+Scheme 的切换可以通过** 主题配置文件 ** 中的Scheme 来进行配置：
+
+~~~ objc
+
+# Schemes
+#scheme: Muse
+scheme: Mist
+#scheme: Pisces
+#scheme: Gemini
+
+~~~
+
+如果要使用只要加上注释就可以了  # 
+
+##### 设置语言
+
+需要在站点的配置文件中将 language 设置成你所需要的语言
+
+~~~ objc
+language: zh-Hans
+~~~
+
+##### 修改底部带#号的标签
+
+具体的办法：
+~~~ objc
+修改模板/themes/next/layout/_macro/post.swig，搜索 rel="tag">#，将 # 换成 <i class="fa fa-tag"></i>
+~~~
+
+##### 在每篇文章末尾统一添加“结束”标记
+
+在路径 \themes\next\layout\_macro 中新建一个 passage-end-tag.swig 文件，并添加内容
+
+~~~ objc
+<div>
+{% if not is_index %}
+<div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+{% endif %}
+</div>
+~~~
+
+然后需要将这个文件添加到 '\themes\next\layout\_macro\post.swig' 文件中，在post-body 之后，post-footer 之前添加如下部分
+
+~~~ objc
+<div>
+{% if not is_index %}
+{% include 'passage-end-tag.swig' %}
+{% endif %}
+</div>
+~~~
+
+然后在主题配置文件'_config.yml' 的末尾添加
+
+~~~ objc
+# 文章末尾添加“本文结束”标记
+passage_end_tag:
+enabled: true
+~~~
+
+这些完成以后，就可以 'hexo s'预览下
+
+##### 主页文章添加阴影效果
+
+打开\themes\next\source\css\_custom\custom.styl,向里面加入：
+
+~~~ objc
+.post {
+ margin-top: 60px;
+ margin-bottom: 60px;
+ padding: 25px;
+ -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+ -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+}
+~~~
+
+
 
 ##### 修改文章的字体的大小
 
