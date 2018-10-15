@@ -1,7 +1,7 @@
 ---
-title: cocoapods-private-spec
+title: cocoapods创建私有化仓库
 date: 2018-10-14 00:00:33
-tags:
+tags: 组件化
 author: 彭凡
 ---
 摘要:
@@ -71,10 +71,10 @@ end
 
 添加完成后, 用以下命令看一下安装在本地的spec 仓库的列表
  > pod repo list
- 
+
  这时候你就会看到安装在本地的TestLib的spec仓库
  cd 到 这个spec仓库的本地文件目录下
- 
+
  用如下命令验证一下spec仓库
 > pod repo lint .
 
@@ -101,11 +101,11 @@ cd到~/Desktop/TestLib/TestLib文件夹,用如下命令创建tag,并提交代码
 source 'https://git.coding.net/LiuXiaoZhuang/HomePageModuleSpec.git'
 
 target 'MainProject' do
-# 第三方库
+#第三方库
 pod 'Masonry'
 pod 'MGJRouter'
 
-# 私有仓库
+#私有仓库
 pod 'TestLib',   '~> 0.0.1'
 end
 '''
